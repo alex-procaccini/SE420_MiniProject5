@@ -57,7 +57,7 @@ public class AlexTester {
 		calc.addSale(iCommissionCalculator.BASIC_ITEM, 2500);
 		calc.addSale(iCommissionCalculator.BASIC_ITEM, 2500);
 		calc.addSale(iCommissionCalculator.BASIC_ITEM, 1000);
-		assertEquals(100, calc.calculateCommission(), 0.01);
+		assertEquals(120, calc.calculateCommission(), 0.01);
 	}
 	
 	@Test
