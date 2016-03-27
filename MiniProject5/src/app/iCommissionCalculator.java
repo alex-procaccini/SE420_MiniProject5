@@ -18,7 +18,7 @@ public interface iCommissionCalculator {
 	
 	public static final int MAINTENANCE_ITEM = 1;
 	
-	public static final int REPLACEMNET_ITEM = 3;
+	public static final int REPLACEMNET_ITEM = 2;
 	
 	public static final int CONSULTING_ITEM = 3;
 	

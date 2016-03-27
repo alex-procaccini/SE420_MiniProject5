@@ -59,4 +59,13 @@ public class AlexTester {
 		calc.addSale(iCommissionCalculator.BASIC_ITEM, 1000);
 		assertEquals(100, calc.calculateCommission(), 0.01);
 	}
+	
+	@Test
+	public void otherItemsTest() {
+		CommissionCalculator calc = new CommissionCalculator("Jane Doe", iCommissionCalculator.PROBATIONARY);
+		calc.addSale(iCommissionCalculator.MAINTENANCE_ITEM, 2500);
+		calc.addSale(iCommissionCalculator.REPLACEMNET_ITEM, 2500);
+		calc.addSale(iCommissionCalculator.CONSULTING_ITEM, 10000);
+		assertEquals(400, calc.calculateCommission(), 0.01);
+	}
 }
