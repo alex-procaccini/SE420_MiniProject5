@@ -111,29 +111,18 @@ public class CommissionCalculator implements iCommissionCalculator {
 		double minimumSalesForCommission = this.getMinimumSales();
 
 		// This is the net sales that the salesman has this month.
-		double netSales = 0.00;
 		double commission = 0.00;
-
+		// AP Removed netSales stuff
 		// Iterate over all transactions.
 		for (SalesTransaction s : this.transactions) {
 			// If we have already met the threshold for sales, simply add the
 			// commission in.
-			if (netSales >= minimumSalesForCommission) {
-				
+			if (s.getTransactionAmount() >= minimumSalesForCommission) {
 				commission += s.getTransactionAmount()
 						* commissionTable[s.getTransactionType()];
-			} else if ((netSales + s.getTransactionAmount()) >= minimumSalesForCommission) {
-				// We need to determine how much of this sale qualifies for
-				// commission.
-				// AP Formally subtracted the minimum amount from the commissionable amount
-				double commissionableAmount = (netSales + s
-						.getTransactionAmount());
-				netSales += s.getTransactionAmount();
-				commission += commissionableAmount
-						* commissionTable[s.getTransactionType()];
-			} else {
+			}
+			else {
 				// No commission. Simply go on.
-				netSales += s.getTransactionAmount();
 			}
 		}
 
