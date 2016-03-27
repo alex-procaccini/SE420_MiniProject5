@@ -122,8 +122,7 @@ public class CommissionCalculator implements iCommissionCalculator {
 				
 				commission += s.getTransactionAmount()
 						* commissionTable[s.getTransactionType()];
-			} 
-			/*else if ((netSales + s.getTransactionAmount()) >= minimumSalesForCommission) {
+			} else if ((netSales + s.getTransactionAmount()) >= minimumSalesForCommission) {
 				// We need to determine how much of this sale qualifies for
 				// commission.
 				// AP Formally subtracted the minimum amount from the commissionable amount
@@ -132,8 +131,7 @@ public class CommissionCalculator implements iCommissionCalculator {
 				netSales += s.getTransactionAmount();
 				commission += commissionableAmount
 						* commissionTable[s.getTransactionType()];
-			} */
-			else {
+			} else {
 				// No commission. Simply go on.
 				netSales += s.getTransactionAmount();
 			}
