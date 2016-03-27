@@ -88,8 +88,8 @@ public class CommissionCalculator implements iCommissionCalculator {
 
 	@Override
 	public double calculateCommission() {
-		final double commissionRatesForProbationaryEmployee[] = { 2, 3,
-				1, 3 };
+		final double commissionRatesForProbationaryEmployee[] = { 0.02, 0.03,
+				0.01, 0.03 };
 		final double commissionRatesForExperiencedEmployee[] = { 0.04, 0.06,
 				0.015, 0.08 };
 
@@ -125,7 +125,7 @@ public class CommissionCalculator implements iCommissionCalculator {
 				// We need to determine how much of this sale qualifies for
 				// commission.
 				double commissionableAmount = (netSales + s
-						.getTransactionAmount()) - minimumSalesForCommission;
+						.getTransactionAmount());
 				netSales += s.getTransactionAmount();
 				commission += commissionableAmount
 						* commissionTable[s.getTransactionType()];
