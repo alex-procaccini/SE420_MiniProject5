@@ -167,29 +167,23 @@ public class CommissionCalculator implements iCommissionCalculator {
 		double bonusCommission = 0.00;
 
 		// Iterate over all transactions.
+		
 		for (SalesTransaction s : this.transactions) {
 			// If we have already met the threshold for sales, simply add the
 			// commission in.
-			if (netSales >= minimumSalesForBonusCommission) {
+			if (s.getTransactionAmount() >= minimumSalesForBonusCommission) {
 				netSales += s.getTransactionAmount();
 				bonusCommission += s.getTransactionAmount()
 						* bonusCommissionRate;
-			} else if ((netSales + s.getTransactionAmount()) >= minimumSalesForBonusCommission) {
-				// We need to determine how much of this sale qualifies for
-				// commission.
-				double commissionableAmount = (netSales + s
-						.getTransactionAmount());
-				netSales += s.getTransactionAmount();
-				
-				//KP removed minimumSalesForBonusCommission since bonus commission is received on the entire sale. 
-
-				bonusCommission += commissionableAmount * bonusCommissionRate;
+				//KP removed elseif because bonus commission was being calculated on the total sale and not for each sale
 			} else {
 				// No commission. Simply go on.
 				netSales += s.getTransactionAmount();
-				bonusCommission = 0;
+				
 			}
 		}
+		
+		
 
 		return bonusCommission;
 	}
