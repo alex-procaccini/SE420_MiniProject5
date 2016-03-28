@@ -176,11 +176,7 @@ public class CommissionCalculator implements iCommissionCalculator {
 				bonusCommission += s.getTransactionAmount()
 						* bonusCommissionRate;
 				//KP removed elseif because bonus commission was being calculated on the total sale and not for each sale
-			} else {
-				// No commission. Simply go on.
-				netSales += s.getTransactionAmount();
-				
-			}
+			} 
 		}
 		
 		

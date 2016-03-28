@@ -62,12 +62,14 @@ public class KrushanTester {
 	
 	@Test
 	public void multipleSalesTest() {
-		CommissionCalculator calc = new CommissionCalculator("Jane Doe", iCommissionCalculator.PROBATIONARY);
+		CommissionCalculator calc = new CommissionCalculator("Krushan Patel", iCommissionCalculator.PROBATIONARY);
 		calc.addSale(iCommissionCalculator.MAINTENANCE_ITEM, 60000);
 		calc.addSale(iCommissionCalculator.REPLACEMNET_ITEM, 2500);
 		calc.addSale(iCommissionCalculator.CONSULTING_ITEM, 75000);
-		assertEquals(675, calc.calculateBonusCommission(), 0.01);
+		assertEquals(675.00, calc.calculateBonusCommission(), 0.01);
 	}
+	
+
 	
 	
 	
