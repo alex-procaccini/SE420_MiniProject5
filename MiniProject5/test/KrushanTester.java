@@ -1,3 +1,11 @@
+/*This class contains JUnit test cases for the calculateBonusCommission() method in CommissionCalcultor.
+ * It checks whether a sale is eligibile for a bonus commission.
+ * @author Krushan Patel
+ * @version 1.0 March 27, 2016
+ */
+
+
+
 package test;
 
 import static org.junit.Assert.assertEquals;
