@@ -119,7 +119,7 @@ public class CommissionCalculator implements iCommissionCalculator {
 			// If we have already met the threshold for sales, simply add the
 			// commission in.
 			if (netSales >= minimumSalesForCommission) {
-				
+
 				commission += s.getTransactionAmount()
 						* commissionTable[s.getTransactionType()];
 			} 
@@ -143,7 +143,7 @@ public class CommissionCalculator implements iCommissionCalculator {
 
 	@Override
 	public double calculateBonusCommission() {
-		final double BONUS_COMMISSION_FOR_PROBATIONARY_EMPLOYEE_RATE = 0.005;
+		final double BONUS_COMMISSION_FOR_PROBATIONARY_EMPLOYEE_RATE = 0.005; 
 		final double BONUS_COMMISSION_FOR_EXPERIENCED_EMPLOYEE_RATE = 0.015;
 
 		double bonusCommissionRate;
@@ -178,13 +178,16 @@ public class CommissionCalculator implements iCommissionCalculator {
 				// We need to determine how much of this sale qualifies for
 				// commission.
 				double commissionableAmount = (netSales + s
-						.getTransactionAmount())
-						- minimumSalesForBonusCommission;
+						.getTransactionAmount());
+				netSales += s.getTransactionAmount();
 				
+				//KP removed minimumSalesForBonusCommission since bonus commission is received on the entire sale. 
+
 				bonusCommission += commissionableAmount * bonusCommissionRate;
 			} else {
 				// No commission. Simply go on.
 				netSales += s.getTransactionAmount();
+				bonusCommission = 0;
 			}
 		}
 

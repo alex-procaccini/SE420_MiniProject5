@@ -1,4 +1,4 @@
-package test;
+/*package test;
 
 import static org.junit.Assert.*;
 
@@ -69,3 +69,4 @@ public class AlexTester {
 		assertEquals(400, calc.calculateCommission(), 0.01);
 	}
 }
+*/
